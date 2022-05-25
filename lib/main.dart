@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_application_1/view/home_view.dart';
+// import 'package:flutter_application_1/view/counter.dart';
+import 'package:flutter_application_1/view/count_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,15 +10,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Hola Car IV'),
-          ),
-          body: Center(
-            child: Text('Home CAR IV'),
-          ),
-        ));
+        home: Contador());
   }
 }
