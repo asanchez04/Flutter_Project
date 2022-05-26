@@ -17,6 +17,18 @@ class _ContadorState extends State<Contador> {
       counter++;
     });
     }
+  void _removeCounter() {
+    setState(() {
+      
+      counter--;
+    });
+    }
+  void _restartCounter() {
+    setState(() {
+      
+      counter = 0;
+    });
+    }
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +59,34 @@ class _ContadorState extends State<Contador> {
             ],
           ),
         ),
-
-        floatingActionButton: FloatingActionButton(
-
-          child: const Icon(Icons.add),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Row(
+          children:<Widget> [
+          FloatingActionButton(
+          child: const Icon(Icons.remove),
           onPressed:(){
-            _incrementCounter();
+            _removeCounter();
             print('this is your counter: $counter');
             showMessage();
-          }));
+          }),
+
+          FloatingActionButton(
+          child: const Icon(Icons.restore),
+          onPressed:(){
+            _restartCounter();
+            print('this is your counter: $counter');
+            showMessage();
+          }),
+
+          FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed:(){
+              _incrementCounter();
+              print('this is your counter: $counter');
+              showMessage();
+            }),
+          ],
+          ));
   }
 
   void showMessage(){
